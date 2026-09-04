@@ -19,7 +19,7 @@ class TestJSONDataReader:
                 "химия": 61
             }
         }'''
-        
+
         data: DataType = {
             "Иванов Иван Иванович": [
                 ("математика", 80),
@@ -32,11 +32,15 @@ class TestJSONDataReader:
                 ("химия", 61)
             ]
         }
-        
+
         return json_text, data
 
     @pytest.fixture()
-    def filepath_and_data(self, json_content_and_data: tuple[str, DataType], tmpdir) -> tuple[str, DataType]:
+    def filepath_and_data(
+        self,
+        json_content_and_data: tuple[str, DataType],
+        tmpdir
+    ) -> tuple[str, DataType]:
         p = tmpdir.mkdir("datadir").join("my_data.json")
         p.write_text(json_content_and_data[0], encoding='utf-8')
         return str(p), json_content_and_data[1]

@@ -47,4 +47,4 @@ class TestCalcDebtors:
 
     def test_calc_multiple_debtors(self, test_data: DataType) -> None:
         calc_debtors = CalcDebtors(test_data)
-        assert calc_debtors.calc() == 2 
+        assert calc_debtors.calc() == 2
